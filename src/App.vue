@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <search-form :enabled="isFormEnabled" @search="search" />
+    <search-form :searching="searching" @search="search" />
     <p class="text-danger" v-show="error">Ha ocurrido un error. Intente de nuevo</p>  
     <repositories-list :repositories="repositories" />
   </div>
@@ -39,11 +39,6 @@ export default {
         this.error = true
       }
       this.searching = false
-    }
-  },
-  computed: {
-    isFormEnabled() {
-      return !this.searching
     }
   }
 }
